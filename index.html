@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\User\OneDrive\Desktop\Product-Quantity-Counter-32-\pages\style.css">
+    <title>Product quality Increment/Decrement</title>
+    <style>
+
+    .container{
+    width: 500px;
+    border: 1px solid black;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 5px 5px 4px grey ;
+   }
+   .product-container
+    {
+        text-align: center;
+        background-color: rgb(224, 228, 230);
+    }
+    .count-img   
+   {
+    width: 50px;
+   }
+   .count-img:hover
+   {
+    width: 60px;
+   }
+   .product-img{
+    width: 350px;
+    height: 400px;
+    text-align: center;
+    margin: 10px 60px;
+   }
+   h2{
+    text-align: center;
+    color: rgb(2, 0, 0);
+    font-style: italic;
+   }
+   h3{
+    text-align: center;
+    color: rgb(2, 0, 0);
+    font-style: italic;
+   }
+   .product-counter
+   {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+   .buy-btn
+   {
+    margin: 10px 5px;
+    width: 180px;
+    height: 50px;
+    color: azure;
+    border-radius: 30px;
+    background-color: black;
+   }
+   .buy-btn:hover
+   {
+    width: 200px;
+   }
+   #count-value
+   {
+    font-size: 30px;
+   }
+    </style>
+</head>
+
+<body>    <div class="container">
+    <div class="product-container">
+        <img src="https://image01-in.oneplus.net/india-oneplus-statics-file/epb/202306/26/dx9eQGbWOFprutIq.png?x-amz-process=image/format,webp/quality,Q_80" class="product-img">
+        <h2>OnePlus Nord Buds 2r Earbuds</h2>
+        <h3> Price : Rs.1999</Rs></h3>
+
+            <div class="product-counter">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEX///8AAABQUFBxcXFtbW0zMzPQ0NCWlpZlZWWurq51dXVcXFy4uLjw8PDBwcHf39+RkZGenp4+Pj42Njbz8/NUVFQODg4hISFiYmKmpqbHx8dJSUnX19ccHBzm5uZ+fn45epJgAAABcUlEQVR4nO3c3U7CQBCAUSogiiii4B8g7/+WxhttYDES2gyzOee+yXzp3uxu08EAAAAAAAAAAAAAAAAAAAAAgE7MH29aRov76IG6Nm32TaJH6tboILBpFtFDdem6ENg0NS3UwzVa20t8KhZOo8fq0LhYOIoeq0MK81OYn8L8FOanMD+F+SnMT2F+CvNTmJ/C/BTmV3/hc7FwGD3WSZaTu6ujVi/FwtfV8Ufe3qOL9syKCefZREe1ffQQ2DSf0VktvQQ26+isX+Ur3vNdziXxbU+F19FhPxQqVBhPoUKF8RQqVBhv01PhMjrs17aXwLvorJZ+XuLlbA8HveyBt5d0iPFtthseNS2ftY2nxx/ZPUQHnaaG89K/1X/mrTA/hfkpzE9hfgrzU5ifwvwU5qcwP4X5KcxPYX71F66LhTX922RXLLy0D53PMS8WRk/VqcdC4Cx6qG69HwQmuyD8h9mkrb4+AAAAAAAAAAAAAAAAAOr2BWHcFPM416YhAAAAAElFTkSuQmCC" class="count-img" onclick="QuantityHandler(`inc`)">
+                <span id="count-value">1</span>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAADFBMVEX///8AAABLS0tTU1PzK9C2AAAAbElEQVR4nO3XsQ0AIAwEsQD778wEdJEegb3BlVcFAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdYs8tKpxyMPumUA4UKFeYpVKgwT6FChXkKFSrMe//xAQAAAAAAAAAAAAAAAAAAAAAAAAAAAPjNBn8oBiyhE5m0AAAAAElFTkSuQmCC" class="count-img" onclick="QuantityHandler(`dec`)">
+            </div>
+
+            <button type="button" class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+    </div>
+    <script>
+        function QuantityHandler(action)
+        {
+             const QuantityElement = document.getElementById("count-value")
+             let Quantity = parseInt(QuantityElement.innerText);
+             if(Quantity ==1 && action== "dec")
+             {
+                        alert(`Quantity cannot be less than "1"`)
+             }
+             else if(Quantity==10 && action == "inc")
+             {
+                alert(`Quantity cannot be more than "10"`)
+
+             }
+             QuantityElement.innerText= action == "inc" ? ++Quantity : --Quantity;
+        }
+    </script>
+</body>
+
+</html>
